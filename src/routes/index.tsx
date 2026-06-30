@@ -30,7 +30,6 @@ function ParticleCanvas() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Alias to non-null consts so nested functions satisfy TS
     const cvs = canvas;
     const ctx2d = ctx;
     const cnt = wrap;
@@ -205,27 +204,30 @@ const projects: Project[] = [
   { client: "Javelina Hunting Texas", desc: "Logo & Branding", category: "Branding", img: `${CDN}/Javelina_moodboard.jpg`, span: "wide" },
   { client: "Leon Oil Transfer", desc: "Logo & Branding", category: "Branding", img: `${CDN}/Leon_Moodboard.jpg` },
   { client: "Infinigas", desc: "Logo & Branding", category: "Branding", img: `${CDN}/Infinigas_Moodboard.jpg` },
-  // Packaging (10)
+  // Packaging (11)
   { client: "EJ Water — Ground Coffee", desc: "Empaque navideño", category: "Packaging", img: `${CDN}/packaging_design1.jpg`, span: "wide" },
   { client: "Hamcock Wine", desc: "Diseño de etiqueta", category: "Packaging", img: `${CDN}/packaging_design-wine.jpg` },
-  { client: "Sílica Spray Kerashine", desc: "Línea de sílicas en spray", category: "Packaging", img: `${CDN}/packaging_design_Silics_spray3.jpg` },
+  { client: "Sílica Spray Kerashine", desc: "Línea de sílicas en spray", category: "Packaging", img: `${CDN}/latas-kera.jpg` },
+  { client: "Kerashine — Silica Pretherapy", desc: "Etiquetas y empaque", category: "Packaging", img: `${CDN}/Silicas2.jpg` },
   { client: "Power Probiotic", desc: "Empaques y etiquetas", category: "Packaging", img: `${CDN}/packaging_design_probiotics.jpg`, span: "tall" },
   { client: "Sílica Kerashine", desc: "Línea de sílicas en spray", category: "Packaging", img: `${CDN}/Packaging_125.jpg` },
   { client: "Spray de Brillo Kerashine", desc: "Empaques y etiquetas", category: "Packaging", img: `${CDN}/Packaging_124.jpg` },
   { client: "Tattoo Master's", desc: "Línea de productos para tatuajes", category: "Packaging", img: `${CDN}/Packaging_1tatto.jpg` },
   { client: "Express Retouch", desc: "Diseño de etiquetas", category: "Packaging", img: `${CDN}/Packaging_express_retouch.jpg` },
   { client: "Express Fantasy", desc: "Sprays de color temporal", category: "Packaging", img: `${CDN}/Packaging_fantasy.jpg`, span: "wide" },
-  { client: "Spray Fijador", desc: "Diseño de línea", category: "Packaging", img: `${CDN}/Packaging_spry_fijador.jpg` },
+  { client: "Spray Fijador", desc: "Diseño de línea", category: "Packaging", img: `${CDN}/Packaging_spry_fijador.jpg`, span: "wide" },
   // Web (4)
   { client: "The Beer Box", desc: "Web design & UX/UI App", category: "Web", img: `${CDN}/mosiaco_Proyectos_Beerbox.jpg`, span: "wide" },
   { client: "Leon Oil Transfer", desc: "Logo, Branding & Website", category: "Web", img: `${CDN}/Leon_thumb.jpg` },
   { client: "MEC — Renta de Maquinaria", desc: "Web design", category: "Web", img: `${CDN}/mosiaco_mec.jpg` },
   { client: "Goa Tek", desc: "E-Commerce", category: "Web", img: `${CDN}/mosiaco_goa.jpg`, span: "wide" },
-  // Restaurantes (4)
+  // Restaurantes (6)
   { client: "Athena Deli", desc: "Takeout Packaging & Brand Identity", category: "Restaurantes", img: `${CDN}/packaging_to_Go_design.jpg` },
   { client: "550 Pizzeria", desc: "Restaurant Advertising Design", category: "Restaurantes", img: `${CDN}/mosiac_Design-restaurant.jpg`, span: "wide" },
-  { client: "Big Bull Grill", desc: "Logo & Advertising", category: "Restaurantes", img: `${CDN}/tend_card_Design-restaurant.jpg` },
-  { client: "Ravello", desc: "Logo & Menu Design", category: "Restaurantes", img: `${CDN}/design_menu_restaurant_ravello.jpg` },
+  { client: "Big Bull Grill", desc: "Logo & Advertising", category: "Restaurantes", img: `${CDN}/Big_bullGrill.jpg` },
+  { client: "Ravello", desc: "Logo & Menu Design", category: "Restaurantes", img: `${CDN}/ravello_Mosaic.jpg` },
+  { client: "Wild Wood", desc: "Brand Identity", category: "Restaurantes", img: `${CDN}/wild_wood.jpg` },
+  { client: "Spirit Lounge", desc: "Brand Identity", category: "Restaurantes", img: `${CDN}/Spirit_Lounge.jpg` },
   // POP (4)
   { client: "Inspira Yoga", desc: "Eventos y clases", category: "Catálogo & POP", img: `${CDN}/pop_design_inspira.jpg` },
   { client: "Med Serv", desc: "Brochure", category: "Catálogo & POP", img: `${CDN}/brochure_graphic_design_3.jpg`, span: "tall" },
@@ -435,43 +437,56 @@ function Index() {
                   Portafolio · 2026
                 </div>
               </FadeUp>
-              <div className="mt-8 text-[clamp(3.25rem,9vw,9rem)] leading-[0.88] tracking-[-0.02em] select-none" style={{ fontFamily: "'Arial Black', 'Helvetica Neue', Impact, sans-serif", fontWeight: 900 }}>
-                {/* "Diseño con" — image clipped inside letters */}
-                {[
-                  { text: "Diseño con", delay: 100 },
-                  { text: "marcas que", delay: 300 },
-                  { text: "perduran.", delay: 400 },
-                ].map(({ text, delay }) => (
-                  <div key={text} className="block overflow-hidden">
-                    <div
-                      style={{
-                        backgroundImage: `url(${CDN}/KRMN_Moodboard.jpg)`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                        backgroundClip: "text",
-                        animation: `heroReveal 0.75s cubic-bezier(0.16,1,0.3,1) ${delay}ms both`,
-                      }}
-                    >
-                      {text}
-                    </div>
-                  </div>
-                ))}
-                {/* "criterio," — accent color, italic */}
-                <div className="block overflow-hidden">
-                  <div style={{ animation: "heroReveal 0.75s cubic-bezier(0.16,1,0.3,1) 200ms both" }}>
-                    <em style={{ color: "#ff6200", fontStyle: "italic", fontFamily: "'Arial Black', 'Helvetica Neue', Impact, sans-serif", fontWeight: 900 }}>criterio</em>
-                    <span style={{ color: "inherit" }}>,</span>
-                  </div>
-                </div>
-              </div>
+
+              {/* Hero heading — 2 líneas: "Diseño con Criterio" / "Marcas que perduran." */}
               <style>{`
                 @keyframes heroReveal {
                   from { transform: translateY(110%); opacity: 0; }
                   to   { transform: translateY(0);    opacity: 1; }
                 }
               `}</style>
+              <div
+                className="mt-8 select-none"
+                style={{
+                  fontFamily: "'Arial Black', 'Helvetica Neue', Impact, sans-serif",
+                  fontWeight: 900,
+                  fontSize: "clamp(2.6rem,6.2vw,6.2rem)",
+                  lineHeight: 0.95,
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                <div style={{ overflow: "hidden" }}>
+                  <div
+                    style={{
+                      backgroundImage: `url(${CDN}/KRMN_Moodboard.jpg)`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                      animation: "heroReveal 0.75s cubic-bezier(0.16,1,0.3,1) 100ms both",
+                    }}
+                  >
+                    Diseño con Criterio,
+                  </div>
+                </div>
+                <div style={{ overflow: "hidden", marginTop: "0.1em" }}>
+                  <div
+                    style={{
+                      backgroundImage: `url(${CDN}/KRMN_Moodboard.jpg)`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                      animation: "heroReveal 0.75s cubic-bezier(0.16,1,0.3,1) 250ms both",
+                    }}
+                  >
+                    Marcas que perduran.
+                  </div>
+                </div>
+              </div>
+
               <FadeUp delay={500}>
                 <p className="mt-10 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
                   Soy Julio Cardona, diseñador gráfico senior especializado en{" "}
@@ -692,4 +707,3 @@ function Index() {
     </div>
   );
 }
-
